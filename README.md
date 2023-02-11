@@ -29,7 +29,9 @@ On my Arch install, the 90-pipewire-alsa.rules file is not copied to initcpio/in
 
 ## Why this works
 
-The below diff is the actual fix. The udev rule and profile-set are just to maintain persistance when the upstream files are updated by your distro (https://archlinux.org/packages/extra/x86_64/alsa-card-profiles/ on Arch).
+The below diff is the actual fix. This change causes Pipewire (and presumably PulseAudio since they are the upstream for these configs) to keep the headphone output in ALSA set to a volume level that is consistent with your master volume level.
+
+The udev rule and profile-set provided are just to maintain persistance when the upstream files are updated by the distribution (https://archlinux.org/packages/extra/x86_64/alsa-card-profiles/ on Arch).
 
 ```diff
 --- analog-output-lineout.conf  2023-02-01 00:43:09.000000000 -0800
